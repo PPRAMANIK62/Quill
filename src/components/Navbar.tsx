@@ -9,6 +9,7 @@ import {
 } from "@kinde-oss/kinde-auth-nextjs/server";
 import { ArrowRight } from "lucide-react";
 import UserAccountNav from "./UserAccountNav";
+import MobileNav from "./MobileNav";
 
 const Navbar = async () => {
   const { getUser } = getKindeServerSession();
@@ -22,7 +23,7 @@ const Navbar = async () => {
             <span>Quill</span>
           </Link>
 
-          {/* TODO: add mobile navbar */}
+          <MobileNav isAuth={!!user} />
 
           <div className="hidden items-center space-x-4 sm:flex">
             {!user ? (
@@ -64,14 +65,24 @@ const Navbar = async () => {
                   Dashboard
                 </Link>
 
+                <Link
+                  href="/sign-out"
+                  className={buttonVariants({
+                    variant: "ghost",
+                    size: "sm",
+                  })}
+                >
+                  Sign out
+                </Link>
+
                 <UserAccountNav
                   name={
                     !user.given_name || !user.family_name
                       ? "Your Account"
                       : `${user.given_name} ${user.family_name}`
                   }
-                  email={user.email ?? ''}
-                  imageUrl={user.picture ?? ''}
+                  email={user.email ?? ""}
+                  imageUrl={user.picture ?? ""}
                 />
               </>
             )}

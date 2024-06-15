@@ -13,6 +13,8 @@ const AuthCallbackPage = () => {
     retry: true,
     retryDelay: 500,
   });
+  console.log(data);
+  console.log(error)
 
   useEffect(() => {
     if (data?.success === true) {
@@ -21,7 +23,7 @@ const AuthCallbackPage = () => {
     }
 
     if (error?.data?.code === "UNAUTHORIZED") {
-      router.push("signin");
+      router.push("/sign-in");
       return;
     }
   }, [data, error, origin, router]);

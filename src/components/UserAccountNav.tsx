@@ -75,15 +75,10 @@ const UserAccountNav = async ({
             <Link href={"/dashboard/billing"}>Manage Subscription</Link>
           ) : (
             <Link href={"/pricing"}>
-              Upgrade <Gem className=" text-blue-600 h-4 w-4 ml-1.5 inline-block" />
+              Upgrade{" "}
+              <Gem className=" text-blue-600 h-4 w-4 ml-1.5 inline-block" />
             </Link>
           )}
-        </DropdownMenuItem>
-
-        <DropdownMenuSeparator />
-
-        <DropdownMenuItem className=" cursor-pointer">
-          <LogoutLink>Log out</LogoutLink>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
